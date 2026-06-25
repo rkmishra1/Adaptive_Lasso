@@ -104,6 +104,20 @@ print(fit$intercept_vec) # Intercepts
 
 ---
 
+## 📊 Simulation Study
+
+We recreated the simulation study described in **Section 5 of the Adaptive Lasso paper (Zou, 2006)**. It implements **Model 1 (Sparse Case)** where the true coefficients are $\beta = (3, 1.5, 0, 0, 2, 0, 0, 0)^T$. Predictors $X$ are generated from a multivariate normal distribution with correlation $\rho^{|i-j|}$ ($\rho = 0.5$) and noise standard deviation $\sigma = 3.0$. The simulation tracks:
+- **Mean Zero (C)**: Average number of zero coefficients correctly set to zero (max 5).
+- **Mean Nonzero (I)**: Average number of active coefficients incorrectly set to zero (max 3).
+- **Prop. Correct**: The proportion of replications where the method selects the exact correct set of active variables.
+
+### Running the Simulation
+```bash
+Rscript examples/adaptive_lasso_simulation.R
+```
+
+---
+
 ## ✅ Verification Results
 
 You can run the verification tests to check the codebase:
